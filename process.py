@@ -5,7 +5,7 @@ import json
 import logging
 from random import randint
 
-logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(process_name)s] %(message)s')
+logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(threadName)s] %(message)s')
 
 class Process:
     def __init__(self, pid, port, peers, algorithm):
@@ -200,7 +200,7 @@ class Process:
                 if not data:
                     return
 
-                message = json.load(data.decode())
+                message = json.loads(data.decode())
                 self._handle_message(message, conn)
         except (json.JSONDecodeError, ConnectionResetError) as e:
             logging.error(f"Erro processing message: {e}")

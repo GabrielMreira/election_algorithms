@@ -23,10 +23,10 @@ class Simulator:
         try:
             n_processes = int(input("To type process number (ex: 5): "))
             algorithm = ''
-            while algorithm not in ['bully', 'anel']:
-                algorithm = input("Chose election algorithm ('bully' or 'anel'): ").lower()
+            while algorithm not in ['bully', 'ring']:
+                algorithm = input("Chose election algorithm ('bully' or 'ring'): ").lower()
         except ValueError:
-            print("Invalid data, using comum values")
+            print("Invalid data, using commum values")
             n_processes = 5
             algorithm = 'bully'
 
